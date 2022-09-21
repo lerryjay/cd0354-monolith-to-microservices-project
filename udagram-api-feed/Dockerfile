@@ -3,7 +3,7 @@ FROM node:13
 WORKDIR /usr/src/app
 # Install app dependencies
 
-COPY package*.json ./
+COPY package*.json /usr/src/app
 
 RUN ls -R
 
