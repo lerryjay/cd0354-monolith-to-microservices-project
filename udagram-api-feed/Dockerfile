@@ -7,7 +7,7 @@ COPY package*.json /usr/src/app
 
 # COPY package-lock.json /usr/src/app
 
-RUN ls /usr/src/app -R
+RUN ls
 
 RUN npm ci 
 # Bundle app source
