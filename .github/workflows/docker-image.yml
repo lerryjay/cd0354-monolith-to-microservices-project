@@ -17,13 +17,13 @@ jobs:
       matrix:
         include:
           - dockerfile: ./udagram-api-feed/Dockerfile
-            image: hub.docker.com/r/greyy2/udagram-api-feed
+            image: greyy2/udagram-api-feed
           - dockerfile: ./udagram-api-user/Dockerfile
-            image: hub.docker.com/r/greyy2/udagram-api-user
+            image: greyy2/udagram-api-user
           - dockerfile: ./udagram-frontend/Dockerfile
-            image: hub.docker.com/r/greyy2/udagram-frontend
+            image: greyy2/udagram-frontend
           - dockerfile: ./udagram-reverseproxy/Dockerfile
-            image: hub.docker.com/r/greyy2/reverseproxy
+            image: greyy2/reverseproxy
 
     steps:
     - uses: actions/checkout@v3
