@@ -16,13 +16,13 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - dockerfile: ./udagram-api-feed
+          - dockerfile: ./udagram-api-feed/Dockerfile
             image: hub.docker.com/r/greyy2/udagram-api-feed
-          - dockerfile: ./udagram-api-user
+          - dockerfile: ./udagram-api-user/Dockerfile
             image: hub.docker.com/r/greyy2/udagram-api-user
-          - dockerfile: ./udagram-frontend
+          - dockerfile: ./udagram-frontend/Dockerfile
             image: hub.docker.com/r/greyy2/udagram-frontend
-          - dockerfile: ./reverseproxy
+          - dockerfile: ./reverseproxy/Dockerfile
             image: hub.docker.com/r/greyy2/reverseproxy
 
     steps:
