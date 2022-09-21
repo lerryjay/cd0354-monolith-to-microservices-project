@@ -1,9 +1,9 @@
-FROM node:13
+FROM node:16
 # Create app directory
 WORKDIR /usr/src/app
 # Install app dependencies
 
-COPY package*.json /usr/src/app
+COPY package*.json ./
 
 # COPY package-lock.json /usr/src/app
 
