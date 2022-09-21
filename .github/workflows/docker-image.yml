@@ -22,7 +22,7 @@ jobs:
             image: hub.docker.com/r/greyy2/udagram-api-user
           - dockerfile: ./udagram-frontend/Dockerfile
             image: hub.docker.com/r/greyy2/udagram-frontend
-          - dockerfile: ./reverseproxy/Dockerfile
+          - dockerfile: ./udagram-reverseproxy/Dockerfile
             image: hub.docker.com/r/greyy2/reverseproxy
 
     steps:
