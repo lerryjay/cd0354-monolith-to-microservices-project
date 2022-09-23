@@ -6,6 +6,6 @@ WORKDIR /usr/src/app
 COPY ./udagram-api-user/package*.json ./
 RUN npm ci 
 # Bundle app source
-COPY ./udagram-api-user/package*.json .
+COPY ./udagram-api-user .
 EXPOSE 8080
 CMD [ "npm", "run", "prod" ]
