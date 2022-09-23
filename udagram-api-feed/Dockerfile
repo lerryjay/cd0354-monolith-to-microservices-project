@@ -11,6 +11,6 @@ RUN ls
 
 RUN npm ci 
 # Bundle app source
-COPY ./udagram-api-user .
+COPY ./udagram-api-feed .
 EXPOSE 8080
 CMD [ "npm", "run", "prod" ]
