@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 COPY ./udagram-frontend/package*.json ./
 RUN npm ci
 # Bundle app source
-COPY . .
+COPY ./udagram-frontend/package*.json .
 RUN ionic build
 ## Run 
 FROM nginx:alpine
