@@ -3,9 +3,9 @@ FROM node:13
 WORKDIR /usr/src/app
 # Install app dependencies
 
-COPY package*.json ./
+COPY ./udagram-api-user/package*.json ./
 RUN npm ci 
 # Bundle app source
-COPY . .
+COPY ./udagram-api-user .
 EXPOSE 8080
 CMD [ "npm", "run", "prod" ]
