@@ -39,7 +39,7 @@ Follow the instructions provided by AWS on [Creating a Managed Node Group](https
 
 
 ### Connecting kubectl with EKS
-Follow the instructions provided by AWS on [Create a kubeconfig for Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html). This will make it such that your `kubectl` will be running against your newly-created EKS cluster.
+Follow the instructions provided by AWS on [Create a kubeconfig for Amazon EKS](kubectl get svc). This will make it such that your `kubectl` will be running against your newly-created EKS cluster.
 
 #### Verify Cluster and Connection
 Once `kubectl` is configured to communicate with your EKS cluster, run the following to validate that it's working:
@@ -114,7 +114,8 @@ Use this link to <a href="https://kubernetes.io/docs/tutorials/stateless-applica
 # Check the deployment names and their pod status
 kubectl get deployments
 # Create a Service object that exposes the frontend deployment:
-kubectl expose deployment frontend --type=LoadBalancer --name=publicfrontend
+kubectl expose deployment frontend --type=LoadBalancer --name=publicfrontend --port=80 --target-port=8100
+kubectl expose deployment reverseproxy --type=LoadBalancer --name=publicreverseproxy --port=8080 --target-port=8080
 kubectl get services publicfrontend
 # Note down the External IP, such as 
 # a5e34958a2ca14b91b020d8aeba87fbb-1366498583.us-east-1.elb.amazonaws.com
