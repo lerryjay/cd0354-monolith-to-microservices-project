@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-feed
+  labels:
+    app: backend-feed
+    app.kubernetes.io/name: backend-feed
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend-feed
+      app.kubernetes.io/name: backend-feed
+  template:
+    metadata:
+      labels:
+        app: backend-feed
+        app.kubernetes.io/name: backend-feed
+    spec:
+      containers:
+      - name: backend-feed
+        image: greyy2/udagram-api-feed:main
+        ports:
+        - containerPort: 8080
+        env:
+          - name: POSTGRES_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: udagram-config # The ConfigMap this value comes from.
+                key: postgres_host # The key to fetch.
+          - name: POSTGRES_DB
+            valueFrom:
+              configMapKeyRef:
+                name: udagram-config # The ConfigMap this value comes from.
+                key: postgres_db # The key to fetch.
+          - name: AWS_BUCKET
+            valueFrom:
+              configMapKeyRef:
+                name: udagram-config # The ConfigMap this value comes from.
+                key: aws_bucket # The key to fetch.
+          - name: AWS_REGION
+            valueFrom:
+              configMapKeyRef:
+                name: udagram-config # The ConfigMap this value comes from.
+                key: aws_region # The key to fetch.
+          - name: AWS_PROFILE
+            valueFrom:
+              configMapKeyRef:
+                name: udagram-config # The ConfigMap this value comes from.
+                key: aws_profile # The key to fetch.
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: udagramsecret # The ConfigMap this value comes from.
+                key: jwt_secret # The key to fetch.
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: udagramsecret # The ConfigMap this value comes from.
+                key: postgres_password # The key to fetch.
+          - name: POSTGRES_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: udagramsecret # The ConfigMap this value comes from.
+                key: postgres_username # The key to fetch.
+    

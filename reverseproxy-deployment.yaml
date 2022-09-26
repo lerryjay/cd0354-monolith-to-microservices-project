@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reverseproxy
+  labels:
+    app: reverseproxy
+    app.kubernetes.io/name: reverseproxy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: reverseproxy
+      app.kubernetes.io/name: reverseproxy
+  template:
+    metadata:
+      labels:
+        app: reverseproxy
+        app.kubernetes.io/name: reverseproxy
+    spec:
+      containers:
+      - name: reverseproxy
+        image: greyy2/reverseproxy:main
+        ports:
+        - containerPort: 80
