@@ -63,3 +63,8 @@ spec:
               secretKeyRef:
                 name: udagramsecret # The ConfigMap this value comes from.
                 key: postgres_username # The key to fetch.
+          resources:
+            limits:
+              cpu: 500m
+            requests:
+              cpu: 200m

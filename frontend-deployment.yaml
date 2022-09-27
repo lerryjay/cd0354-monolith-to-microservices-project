@@ -21,4 +21,4 @@ spec:
       - name: frontend
         image: greyy2/udagram-frontend:main
         ports:
-        - containerPort: 80
+        - containerPort: 80    
